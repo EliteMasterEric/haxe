@@ -421,7 +421,7 @@ let type_generic_function ctx fa fcc with_type p =
 				in
 				cf2.cf_expr <- (match cf.cf_expr with
 					| None ->
-						display_error ctx.com "Recursive @:generic function" p; None;
+						display_error ctx.com (Printf.sprintf "Recursive @:generic function %s.%s" (s_type_path c.cl_path) cf.cf_name) p; None;
 					| Some e ->
 						let e = generic_substitute_expr gctx e in
 						check e;
